@@ -22,7 +22,7 @@ public class ResponseUtils {
 	 * Get the text message in a GenerateContentResponse.
 	 *
 	 * @param response a
-	 *                 {@link com.google.cloud.vertexai.api.GenerateContentResponse}
+	 *                 {@link GenerateContentResponse}
 	 *                 instance
 	 * @return a String that aggregates all the text parts in the response
 	 * @throws IllegalArgumentException if the response has 0 or more than 1
@@ -51,7 +51,7 @@ public class ResponseUtils {
 	 * Get the content in a GenerateContentResponse.
 	 *
 	 * @param response a
-	 *                 {@link com.google.cloud.vertexai.api.GenerateContentResponse}
+	 *                 {@link GenerateContentResponse}
 	 *                 instance
 	 * @return the {@link com.google.cloud.vertexai.api.Content} in the response
 	 * @throws IllegalArgumentException if the response has 0 or more than 1
@@ -74,9 +74,9 @@ public class ResponseUtils {
 	 * Get the finish reason in a GenerateContentResponse.
 	 *
 	 * @param response a
-	 *                 {@link com.google.cloud.vertexai.api.GenerateContentResponse}
+	 *                 {@link GenerateContentResponse}
 	 *                 instance
-	 * @return the {@link com.google.cloud.vertexai.api.FinishReason} in the
+	 * @return the {@link FinishReason} in the
 	 *         response
 	 * @throws IllegalArgumentException if the response has 0 or more than 1
 	 *                                  candidates
