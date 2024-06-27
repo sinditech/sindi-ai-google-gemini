@@ -9,7 +9,10 @@ package za.co.sindi.ai.google.model;
  */
 public enum GenerativeModelName {
 	GEMINI_PRO("gemini-pro"),
+	@Deprecated
 	GEMINI_PRO_VISION("gemini-pro-vision"),
+	GEMINI_1_5_PRO("gemini-1.5-pro"),
+	GEMINI_1_5_FLASH("gemini-1.5-flash"),
 	GEMINI_1_0_PRO("gemini-1.0-pro"),
 	GEMINI_1_0_PRO_VISION("gemini-1.0-pro-vision"),
 	GEMINI_ULTRA("gemini-ultra"),
@@ -37,5 +40,9 @@ public enum GenerativeModelName {
 		}
 		
 		throw new IllegalArgumentException(String.format("Invalid model name: %s.", name));
+	}
+	
+	public static GenerativeModelName getLatest() {
+		return GEMINI_1_5_PRO;
 	}
 }
