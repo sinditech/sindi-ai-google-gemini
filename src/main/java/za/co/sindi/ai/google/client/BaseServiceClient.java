@@ -123,7 +123,9 @@ public abstract class BaseServiceClient implements ServiceClient {
 		events.forEach(event -> {
 			if (event instanceof MessageEvent message) {
 				String content = message.getData();
-				result.add(objectTransformer.transform(content, entityClassType));
+				if (!"[DONE]".equals(content)) {
+					result.add(objectTransformer.transform(content, entityClassType));
+				}
 			}
 		});
 		
