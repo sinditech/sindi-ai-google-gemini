@@ -24,6 +24,8 @@ import za.co.sindi.ai.google.ApiException;
 import za.co.sindi.ai.google.JSONBObjectTransformer;
 import za.co.sindi.ai.google.JSONObjectTransformer;
 import za.co.sindi.commons.net.http.WithErrorBodyHandler;
+import za.co.sindi.commons.net.sse.Event;
+import za.co.sindi.commons.net.sse.MessageEvent;
 import za.co.sindi.commons.util.Either;
 
 /**
@@ -100,16 +102,28 @@ public abstract class BaseServiceClient implements ServiceClient {
 		return either.getLeft();
 	}
 
-	protected <R> Stream<R> handleStream(final Stream<String> lines, Class<R> entityClassType) {
-		final String keyword = "data: ";
+//	protected <R> Stream<R> handleStream(final Stream<String> lines, Class<R> entityClassType) {
+//		final String keyword = "data: ";
+//		List<R> result = new ArrayList<>();
+//		lines.forEach(line -> {
+//			System.out.println(keyword + " -> " + line);
+//			if (line.startsWith(keyword)) {
+//				String content = line.substring(keyword.length());
+//				if (!"[DONE]".equals(content)) {
+//					result.add(objectTransformer.transform(content, entityClassType));
+//				}
+//			}
+//		});
+//		
+//		return Collections.unmodifiableList(result).stream();
+//	}
+	
+	protected <R> Stream<R> handleStream(final Stream<Event> events, Class<R> entityClassType) {
 		List<R> result = new ArrayList<>();
-		lines.forEach(line -> {
-			System.out.println(keyword + " -> " + line);
-			if (line.startsWith(keyword)) {
-				String content = line.substring(keyword.length());
-				if (!"[DONE]".equals(content)) {
-					result.add(objectTransformer.transform(content, entityClassType));
-				}
+		events.forEach(event -> {
+			if (event instanceof MessageEvent message) {
+				String content = message.getData();
+				result.add(objectTransformer.transform(content, entityClassType));
 			}
 		});
 		

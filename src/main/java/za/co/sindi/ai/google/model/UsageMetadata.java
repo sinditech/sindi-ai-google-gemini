@@ -17,6 +17,9 @@ public class UsageMetadata implements Serializable {
 	private Integer promptTokenCount;
 	
 	@JsonbProperty
+	private Integer cachedContentTokenCount;
+	
+	@JsonbProperty
 	private Integer candidatesTokenCount;
 
 	@JsonbProperty
@@ -34,6 +37,20 @@ public class UsageMetadata implements Serializable {
 	 */
 	public void setPromptTokenCount(Integer promptTokenCount) {
 		this.promptTokenCount = promptTokenCount;
+	}
+
+	/**
+	 * @return the cachedContentTokenCount
+	 */
+	public Integer getCachedContentTokenCount() {
+		return cachedContentTokenCount;
+	}
+
+	/**
+	 * @param cachedContentTokenCount the cachedContentTokenCount to set
+	 */
+	public void setCachedContentTokenCount(Integer cachedContentTokenCount) {
+		this.cachedContentTokenCount = cachedContentTokenCount;
 	}
 
 	/**

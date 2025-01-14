@@ -17,7 +17,7 @@ public class FunctionResponse implements Serializable {
 	private String name;
 	
 	@JsonbProperty
-	private Serializable args;
+	private Struct response;
 
 	/**
 	 * @return the name
@@ -34,16 +34,16 @@ public class FunctionResponse implements Serializable {
 	}
 
 	/**
-	 * @return the args
+	 * @return the response
 	 */
-	public Serializable getArgs() {
-		return args;
+	public Struct getResponse() {
+		return response;
 	}
 
 	/**
-	 * @param args the args to set
+	 * @param response the response to set
 	 */
-	public void setArgs(Serializable args) {
-		this.args = args;
+	public void setResponse(Struct response) {
+		this.response = response;
 	}
 }

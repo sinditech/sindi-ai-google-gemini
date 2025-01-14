@@ -22,6 +22,9 @@ public class EmbedContentRequest {
 	
 	@JsonbProperty
 	private String title;
+	
+	@JsonbProperty
+	private Integer outputDimensionality;
 
 	/**
 	 * @return the model
@@ -77,5 +80,19 @@ public class EmbedContentRequest {
 	 */
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	/**
+	 * @return the outputDimensionality
+	 */
+	public Integer getOutputDimensionality() {
+		return outputDimensionality;
+	}
+
+	/**
+	 * @param outputDimensionality the outputDimensionality to set
+	 */
+	public void setOutputDimensionality(Integer outputDimensionality) {
+		this.outputDimensionality = outputDimensionality;
 	}
 }

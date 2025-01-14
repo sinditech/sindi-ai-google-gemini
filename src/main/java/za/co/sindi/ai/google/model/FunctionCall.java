@@ -17,7 +17,7 @@ public class FunctionCall implements Serializable {
 	private String name;
 	
 	@JsonbProperty
-	private Serializable args;
+	private Struct args;
 
 	/**
 	 * @return the name
@@ -36,14 +36,14 @@ public class FunctionCall implements Serializable {
 	/**
 	 * @return the args
 	 */
-	public Serializable getArgs() {
+	public Struct getArgs() {
 		return args;
 	}
 
 	/**
 	 * @param args the args to set
 	 */
-	public void setArgs(Serializable args) {
+	public void setArgs(Struct args) {
 		this.args = args;
 	}
 }

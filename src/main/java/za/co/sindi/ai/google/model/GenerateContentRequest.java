@@ -18,10 +18,19 @@ public class GenerateContentRequest {
 	private Tool[] tools;
 	
 	@JsonbProperty
+	private ToolConfig toolConfig;
+	
+	@JsonbProperty
 	private SafetySetting[] safetySettings;
+
+	@JsonbProperty
+	private Content systemInstruction;
 	
 	@JsonbProperty
 	private GenerationConfig generationConfig;
+	
+	@JsonbProperty
+	private String cachedContent;
 
 	/**
 	 * @return the contents
@@ -52,6 +61,20 @@ public class GenerateContentRequest {
 	}
 
 	/**
+	 * @return the toolConfig
+	 */
+	public ToolConfig getToolConfig() {
+		return toolConfig;
+	}
+
+	/**
+	 * @param toolConfig the toolConfig to set
+	 */
+	public void setToolConfig(ToolConfig toolConfig) {
+		this.toolConfig = toolConfig;
+	}
+
+	/**
 	 * @return the safetySettings
 	 */
 	public SafetySetting[] getSafetySettings() {
@@ -66,6 +89,20 @@ public class GenerateContentRequest {
 	}
 
 	/**
+	 * @return the systemInstruction
+	 */
+	public Content getSystemInstruction() {
+		return systemInstruction;
+	}
+
+	/**
+	 * @param systemInstruction the systemInstruction to set
+	 */
+	public void setSystemInstruction(Content systemInstruction) {
+		this.systemInstruction = systemInstruction;
+	}
+
+	/**
 	 * @return the generationConfig
 	 */
 	public GenerationConfig getGenerationConfig() {
@@ -77,5 +114,19 @@ public class GenerateContentRequest {
 	 */
 	public void setGenerationConfig(GenerationConfig generationConfig) {
 		this.generationConfig = generationConfig;
+	}
+
+	/**
+	 * @return the cachedContent
+	 */
+	public String getCachedContent() {
+		return cachedContent;
+	}
+
+	/**
+	 * @param cachedContent the cachedContent to set
+	 */
+	public void setCachedContent(String cachedContent) {
+		this.cachedContent = cachedContent;
 	}
 }

@@ -28,7 +28,7 @@ public class GoogleGeminiTest {
 	}
 	
 	private static void textTest() {
-		GoogleAIModelServiceClient modelServiceClient = new GoogleAIModelServiceClient(GenerativeModelName.GEMINI_1_0_PRO, "sdfasdfsadfadfs");
+		GoogleAIModelServiceClient modelServiceClient = new GoogleAIModelServiceClient(GenerativeModelName.getLatest(), "<ENTER YOUR API KEY HERE>");
 		GenerateContentRequest request = new GenerateContentRequest();
 //		request.setContents(new Content[] { new Content() });
 //		request.getContents()[0].setParts(new Part[] { new Part() });
@@ -39,7 +39,7 @@ public class GoogleGeminiTest {
 	}
 	
 	private static void textAndImageTest() throws MalformedURLException, IOException {
-		GoogleAIModelServiceClient modelServiceClient = new GoogleAIModelServiceClient(GenerativeModelName.GEMINI_PRO_VISION, "adfasdfasdfsdf");
+		GoogleAIModelServiceClient modelServiceClient = new GoogleAIModelServiceClient(GenerativeModelName.getLatest(), "<ENTER YOUR API KEY HERE>");
 		String imageUri = "https://storage.googleapis.com/generativeai-downloads/images/scones.jpg";
 		
 		GenerateContentRequest request = new GenerateContentRequest();

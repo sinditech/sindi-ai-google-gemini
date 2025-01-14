@@ -17,7 +17,7 @@ public class CountTokensResponse implements Serializable {
 	private Integer totalTokens;
 	
 	@JsonbProperty
-	private Integer totalBillableCharacters;
+	private Integer cachedContentTokenCount;
 
 	/**
 	 * @return the totalTokens
@@ -34,16 +34,16 @@ public class CountTokensResponse implements Serializable {
 	}
 
 	/**
-	 * @return the totalBillableCharacters
+	 * @return the cachedContentTokenCount
 	 */
-	public Integer getTotalBillableCharacters() {
-		return totalBillableCharacters;
+	public Integer getCachedContentTokenCount() {
+		return cachedContentTokenCount;
 	}
 
 	/**
-	 * @param totalBillableCharacters the totalBillableCharacters to set
+	 * @param cachedContentTokenCount the cachedContentTokenCount to set
 	 */
-	public void setTotalBillableCharacters(Integer totalBillableCharacters) {
-		this.totalBillableCharacters = totalBillableCharacters;
+	public void setCachedContentTokenCount(Integer cachedContentTokenCount) {
+		this.cachedContentTokenCount = cachedContentTokenCount;
 	}
 }

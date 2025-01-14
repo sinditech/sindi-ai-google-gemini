@@ -12,7 +12,7 @@ import jakarta.json.bind.annotation.JsonbProperty;
  * @since 09 February 2024
  */
 public class Part implements Serializable {
-
+	
 	@JsonbProperty
 	private String text;
 	
@@ -29,7 +29,10 @@ public class Part implements Serializable {
 	private FunctionResponse functionResponse;
 	
 	@JsonbProperty
-	private VideoMetadata videoMetadata;
+	private ExecutableCode executableCode;
+	
+	@JsonbProperty
+	private CodeExecutionResult codeExecutionResult;
 
 	/**
 	 * @return the text
@@ -102,16 +105,30 @@ public class Part implements Serializable {
 	}
 
 	/**
-	 * @return the videoMetadata
+	 * @return the executableCode
 	 */
-	public VideoMetadata getVideoMetadata() {
-		return videoMetadata;
+	public ExecutableCode getExecutableCode() {
+		return executableCode;
 	}
 
 	/**
-	 * @param videoMetadata the videoMetadata to set
+	 * @param executableCode the executableCode to set
 	 */
-	public void setVideoMetadata(VideoMetadata videoMetadata) {
-		this.videoMetadata = videoMetadata;
+	public void setExecutableCode(ExecutableCode executableCode) {
+		this.executableCode = executableCode;
+	}
+
+	/**
+	 * @return the codeExecutionResult
+	 */
+	public CodeExecutionResult getCodeExecutionResult() {
+		return codeExecutionResult;
+	}
+
+	/**
+	 * @param codeExecutionResult the codeExecutionResult to set
+	 */
+	public void setCodeExecutionResult(CodeExecutionResult codeExecutionResult) {
+		this.codeExecutionResult = codeExecutionResult;
 	}
 }

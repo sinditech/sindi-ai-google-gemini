@@ -14,36 +14,19 @@ import jakarta.json.bind.annotation.JsonbProperty;
 public class VideoMetadata implements Serializable {
 
 	@JsonbProperty
-	private String startOffset;
-	
-	@JsonbProperty
-	private String endOffset;
+	private String videoDuration;
 
 	/**
-	 * @return the startOffset
+	 * @return the videoDuration
 	 */
-	public String getStartOffset() {
-		return startOffset;
+	public String getVideoDuration() {
+		return videoDuration;
 	}
 
 	/**
-	 * @param startOffset the startOffset to set
+	 * @param videoDuration the videoDuration to set
 	 */
-	public void setStartOffset(String startOffset) {
-		this.startOffset = startOffset;
-	}
-
-	/**
-	 * @return the endOffset
-	 */
-	public String getEndOffset() {
-		return endOffset;
-	}
-
-	/**
-	 * @param endOffset the endOffset to set
-	 */
-	public void setEndOffset(String endOffset) {
-		this.endOffset = endOffset;
+	public void setVideoDuration(String videoDuration) {
+		this.videoDuration = videoDuration;
 	}
 }

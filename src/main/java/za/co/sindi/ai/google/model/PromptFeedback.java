@@ -14,25 +14,25 @@ import jakarta.json.bind.annotation.JsonbProperty;
 public class PromptFeedback implements Serializable {
 	
 	@JsonbProperty
-	private BlockedReason blockReason;
+	private BlockReason blockReason;
 
 	@JsonbProperty
 	private SafetyRating[] safetyRatings;
 	
-	@JsonbProperty
-	private String blockReasonMessage;
+//	@JsonbProperty
+//	private String blockReasonMessage;
 
 	/**
 	 * @return the blockReason
 	 */
-	public BlockedReason getBlockReason() {
+	public BlockReason getBlockReason() {
 		return blockReason;
 	}
 
 	/**
 	 * @param blockReason the blockReason to set
 	 */
-	public void setBlockReason(BlockedReason blockReason) {
+	public void setBlockReason(BlockReason blockReason) {
 		this.blockReason = blockReason;
 	}
 
@@ -50,17 +50,17 @@ public class PromptFeedback implements Serializable {
 		this.safetyRatings = safetyRatings;
 	}
 
-	/**
-	 * @return the blockReasonMessage
-	 */
-	public String getBlockReasonMessage() {
-		return blockReasonMessage;
-	}
-
-	/**
-	 * @param blockReasonMessage the blockReasonMessage to set
-	 */
-	public void setBlockReasonMessage(String blockReasonMessage) {
-		this.blockReasonMessage = blockReasonMessage;
-	}
+//	/**
+//	 * @return the blockReasonMessage
+//	 */
+//	public String getBlockReasonMessage() {
+//		return blockReasonMessage;
+//	}
+//
+//	/**
+//	 * @param blockReasonMessage the blockReasonMessage to set
+//	 */
+//	public void setBlockReasonMessage(String blockReasonMessage) {
+//		this.blockReasonMessage = blockReasonMessage;
+//	}
 }

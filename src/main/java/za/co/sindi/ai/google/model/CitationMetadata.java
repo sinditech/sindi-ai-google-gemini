@@ -14,19 +14,19 @@ import jakarta.json.bind.annotation.JsonbProperty;
 public class CitationMetadata implements Serializable {
 
 	@JsonbProperty
-	private Citation[] citations;
+	private CitationSource[] citationSources;
 
 	/**
-	 * @return the citations
+	 * @return the citationSources
 	 */
-	public Citation[] getCitations() {
-		return citations;
+	public CitationSource[] getCitationSources() {
+		return citationSources;
 	}
 
 	/**
-	 * @param citations the citations to set
+	 * @param citationSources the citationSources to set
 	 */
-	public void setCitations(Citation[] citations) {
-		this.citations = citations;
+	public void setCitationSources(CitationSource[] citationSources) {
+		this.citationSources = citationSources;
 	}
 }

@@ -10,6 +10,7 @@ import jakarta.json.bind.annotation.JsonbProperty;
 /**
  * @author Buhake Sindi
  * @since 09 February 2024
+ * @see <a href="https://ai.google.dev/api/generate-content#candidate">Candidate</a>.
  */
 public class Candidate implements Serializable {
 
@@ -29,7 +30,22 @@ public class Candidate implements Serializable {
 	private CitationMetadata citationMetadata;
 	
 	@JsonbProperty
-	private String finishMessage;
+	private Integer tokenCount;
+	
+	@JsonbProperty
+	private GroundingAttribution[] groundingAttributions;
+	
+	@JsonbProperty
+	private GroundingMetadata groundingMetadata;
+	
+	@JsonbProperty
+	private Double avgLogprobs;
+	
+	@JsonbProperty
+	private LogprobsResult logprobsResult;
+	
+//	@JsonbProperty
+//	private String finishMessage;
 
 	/**
 	 * @return the index
@@ -101,17 +117,87 @@ public class Candidate implements Serializable {
 		this.citationMetadata = citationMetadata;
 	}
 
+//	/**
+//	 * @return the finishMessage
+//	 */
+//	public String getFinishMessage() {
+//		return finishMessage;
+//	}
+//
+//	/**
+//	 * @param finishMessage the finishMessage to set
+//	 */
+//	public void setFinishMessage(String finishMessage) {
+//		this.finishMessage = finishMessage;
+//	}
+
 	/**
-	 * @return the finishMessage
+	 * @return the tokenCount
 	 */
-	public String getFinishMessage() {
-		return finishMessage;
+	public Integer getTokenCount() {
+		return tokenCount;
 	}
 
 	/**
-	 * @param finishMessage the finishMessage to set
+	 * @param tokenCount the tokenCount to set
 	 */
-	public void setFinishMessage(String finishMessage) {
-		this.finishMessage = finishMessage;
+	public void setTokenCount(Integer tokenCount) {
+		this.tokenCount = tokenCount;
+	}
+
+	/**
+	 * @return the groundingAttributions
+	 */
+	public GroundingAttribution[] getGroundingAttributions() {
+		return groundingAttributions;
+	}
+
+	/**
+	 * @param groundingAttributions the groundingAttributions to set
+	 */
+	public void setGroundingAttributions(GroundingAttribution[] groundingAttributions) {
+		this.groundingAttributions = groundingAttributions;
+	}
+
+	/**
+	 * @return the groundingMetadata
+	 */
+	public GroundingMetadata getGroundingMetadata() {
+		return groundingMetadata;
+	}
+
+	/**
+	 * @param groundingMetadata the groundingMetadata to set
+	 */
+	public void setGroundingMetadata(GroundingMetadata groundingMetadata) {
+		this.groundingMetadata = groundingMetadata;
+	}
+
+	/**
+	 * @return the avgLogprobs
+	 */
+	public Double getAvgLogprobs() {
+		return avgLogprobs;
+	}
+
+	/**
+	 * @param avgLogprobs the avgLogprobs to set
+	 */
+	public void setAvgLogprobs(Double avgLogprobs) {
+		this.avgLogprobs = avgLogprobs;
+	}
+
+	/**
+	 * @return the logprobsResult
+	 */
+	public LogprobsResult getLogprobsResult() {
+		return logprobsResult;
+	}
+
+	/**
+	 * @param logprobsResult the logprobsResult to set
+	 */
+	public void setLogprobsResult(LogprobsResult logprobsResult) {
+		this.logprobsResult = logprobsResult;
 	}
 }

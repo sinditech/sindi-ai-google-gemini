@@ -26,6 +26,8 @@ import za.co.sindi.ai.google.model.ListModel;
 import za.co.sindi.ai.google.model.Model;
 import za.co.sindi.ai.google.model.Region;
 import za.co.sindi.commons.io.UncheckedException;
+import za.co.sindi.commons.net.sse.AllEventSubscriber;
+import za.co.sindi.commons.net.sse.SSEEventProcessor;
 import za.co.sindi.commons.util.Either;
 
 /**
@@ -210,9 +212,13 @@ public class VertexAIModelServiceClient extends VertexAIServiceClient implements
 	public Stream<GenerateContentResponse> generateContentStream(GenerateContentRequest request) {
 		// TODO Auto-generated method stub
 		try {
+			SSEEventProcessor processor = new SSEEventProcessor();
+			AllEventSubscriber subscriber = new AllEventSubscriber();
+			processor.subscribe(subscriber);
 			HttpRequest.Builder httpRequestBuilder = createHttpPOSTRequestBuilder(URI.create(streamGenerateContentUriPath), BodyPublishers.ofString(objectTransformer.transform(request)));
-			HttpResponse<Either<Stream<String>, String>> httpResponse = send(httpRequestBuilder, BodyHandlers.ofLines());
-			return handleStream(validateAndHandleHttpResponse(httpResponse), GenerateContentResponse.class);
+			HttpResponse<Either<Void, String>> httpResponse = send(httpRequestBuilder, BodyHandlers.fromLineSubscriber(processor));
+			validateAndHandleHttpResponse(httpResponse);
+			return handleStream(subscriber.getEventStream(), GenerateContentResponse.class);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			throw new UncheckedIOException(e);

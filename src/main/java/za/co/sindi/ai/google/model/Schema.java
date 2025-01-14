@@ -33,14 +33,17 @@ public class Schema implements Serializable {
 	private String[] enums;
 	
 	@JsonbProperty
+	private String maxItems;
+	
+	@JsonbProperty
+	private String minItems;
+	
+	@JsonbProperty
 	private Map<String, Schema> properties;
 	
 	@JsonbProperty
 	private String[] required;
 	
-	@JsonbProperty
-	private Serializable example;
-
 	/**
 	 * @return the type
 	 */
@@ -126,6 +129,34 @@ public class Schema implements Serializable {
 	}
 
 	/**
+	 * @return the maxItems
+	 */
+	public String getMaxItems() {
+		return maxItems;
+	}
+
+	/**
+	 * @param maxItems the maxItems to set
+	 */
+	public void setMaxItems(String maxItems) {
+		this.maxItems = maxItems;
+	}
+
+	/**
+	 * @return the minItems
+	 */
+	public String getMinItems() {
+		return minItems;
+	}
+
+	/**
+	 * @param minItems the minItems to set
+	 */
+	public void setMinItems(String minItems) {
+		this.minItems = minItems;
+	}
+
+	/**
 	 * @return the properties
 	 */
 	public Map<String, Schema> getProperties() {
@@ -151,19 +182,5 @@ public class Schema implements Serializable {
 	 */
 	public void setRequired(String[] required) {
 		this.required = required;
-	}
-
-	/**
-	 * @return the example
-	 */
-	public Serializable getExample() {
-		return example;
-	}
-
-	/**
-	 * @param example the example to set
-	 */
-	public void setExample(Serializable example) {
-		this.example = example;
 	}
 }

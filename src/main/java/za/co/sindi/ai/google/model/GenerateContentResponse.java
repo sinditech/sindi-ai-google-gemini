@@ -21,6 +21,9 @@ public class GenerateContentResponse implements Serializable {
 
 	@JsonbProperty
 	private UsageMetadata usageMetadata;
+	
+	@JsonbProperty
+	private String modelVersion;
 
 	/**
 	 * @return the candidates
@@ -62,5 +65,19 @@ public class GenerateContentResponse implements Serializable {
 	 */
 	public void setUsageMetadata(UsageMetadata usageMetadata) {
 		this.usageMetadata = usageMetadata;
+	}
+
+	/**
+	 * @return the modelVersion
+	 */
+	public String getModelVersion() {
+		return modelVersion;
+	}
+
+	/**
+	 * @param modelVersion the modelVersion to set
+	 */
+	public void setModelVersion(String modelVersion) {
+		this.modelVersion = modelVersion;
 	}
 }

@@ -6,6 +6,7 @@ package za.co.sindi.ai.google.model;
 /**
  * @author Buhake Sindi
  * @since 09 February 2024
+ * @see <a href="https://ai.google.dev/api/generate-content#v1beta.SafetySetting">Safety Settings</a>
  */
 public enum HarmCategory {
 	HARM_CATEGORY_UNSPECIFIED("The harm category is unspecified.")

@@ -39,6 +39,9 @@ public class Model {
 	private Double temperature;
 	
 	@JsonbProperty
+	private Double maxTemperature;
+	
+	@JsonbProperty
 	private Double topP;
 	
 	@JsonbProperty
@@ -168,6 +171,20 @@ public class Model {
 	 */
 	public void setTemperature(Double temperature) {
 		this.temperature = temperature;
+	}
+
+	/**
+	 * @return the maxTemperature
+	 */
+	public Double getMaxTemperature() {
+		return maxTemperature;
+	}
+
+	/**
+	 * @param maxTemperature the maxTemperature to set
+	 */
+	public void setMaxTemperature(Double maxTemperature) {
+		this.maxTemperature = maxTemperature;
 	}
 
 	/**

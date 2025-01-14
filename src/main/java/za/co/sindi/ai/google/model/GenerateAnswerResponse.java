@@ -12,7 +12,7 @@ import jakarta.json.bind.annotation.JsonbProperty;
 public class GenerateAnswerResponse {
 
 	@JsonbProperty
-	private Content answer;
+	private Candidate answer;
 	
 	@JsonbProperty
 	private Double answerableProbability;
@@ -23,14 +23,14 @@ public class GenerateAnswerResponse {
 	/**
 	 * @return the answer
 	 */
-	public Content getAnswer() {
+	public Candidate getAnswer() {
 		return answer;
 	}
 
 	/**
 	 * @param answer the answer to set
 	 */
-	public void setAnswer(Content answer) {
+	public void setAnswer(Candidate answer) {
 		this.answer = answer;
 	}
 

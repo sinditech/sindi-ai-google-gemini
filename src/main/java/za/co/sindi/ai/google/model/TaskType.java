@@ -14,6 +14,8 @@ public enum TaskType {
 	,SEMANTIC_SIMILARITY("Specifies the given text will be used for STS.")
 	,CLASSIFICATION("Specifies that the given text will be classified.")
 	,CLUSTERING("Specifies that the embeddings will be used for clustering.")
+	,QUESTION_ANSWERING("Specifies that the given text will be used for question answering.")
+	,FACT_VERIFICATION("Specifies that the given text will be used for fact verification.")
 	;
 	private final String description;
 

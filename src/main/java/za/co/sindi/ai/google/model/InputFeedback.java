@@ -17,19 +17,19 @@ public class InputFeedback implements Serializable {
 	private SafetyRating[] safetyRatings;
 	
 	@JsonbProperty
-	private BlockedReason blockReason;
+	private BlockReason blockReason;
 
 	/**
 	 * @return the blockReason
 	 */
-	public BlockedReason getBlockReason() {
+	public BlockReason getBlockReason() {
 		return blockReason;
 	}
 
 	/**
 	 * @param blockReason the blockReason to set
 	 */
-	public void setBlockReason(BlockedReason blockReason) {
+	public void setBlockReason(BlockReason blockReason) {
 		this.blockReason = blockReason;
 	}
 

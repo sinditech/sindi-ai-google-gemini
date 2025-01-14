@@ -17,6 +17,12 @@ public class GenerationConfig implements Serializable {
 	private String[] stopSequences;
 	
 	@JsonbProperty
+	private String responseMimeType;
+	
+	@JsonbProperty
+	private Schema responseSchema;
+	
+	@JsonbProperty
 	private Float temperature;
 	
 	@JsonbProperty
@@ -30,6 +36,21 @@ public class GenerationConfig implements Serializable {
 	
 	@JsonbProperty
 	private Integer maxOutputTokens;
+	
+	@JsonbProperty
+	private Float presencePenalty;
+	
+	@JsonbProperty
+	private Float frequencyPenalty;
+	
+	@JsonbProperty
+	private Boolean responseLogprobs;
+	
+	@JsonbProperty
+	private Integer logprobs;
+	
+	@JsonbProperty
+	private Boolean enableEnhancedCivicAnswers;
 
 	/**
 	 * @return the stopSequences
@@ -43,6 +64,34 @@ public class GenerationConfig implements Serializable {
 	 */
 	public void setStopSequences(String[] stopSequences) {
 		this.stopSequences = stopSequences;
+	}
+
+	/**
+	 * @return the responseMimeType
+	 */
+	public String getResponseMimeType() {
+		return responseMimeType;
+	}
+
+	/**
+	 * @param responseMimeType the responseMimeType to set
+	 */
+	public void setResponseMimeType(String responseMimeType) {
+		this.responseMimeType = responseMimeType;
+	}
+
+	/**
+	 * @return the responseSchema
+	 */
+	public Schema getResponseSchema() {
+		return responseSchema;
+	}
+
+	/**
+	 * @param responseSchema the responseSchema to set
+	 */
+	public void setResponseSchema(Schema responseSchema) {
+		this.responseSchema = responseSchema;
 	}
 
 	/**
@@ -113,5 +162,75 @@ public class GenerationConfig implements Serializable {
 	 */
 	public void setMaxOutputTokens(Integer maxOutputTokens) {
 		this.maxOutputTokens = maxOutputTokens;
+	}
+
+	/**
+	 * @return the presencePenalty
+	 */
+	public Float getPresencePenalty() {
+		return presencePenalty;
+	}
+
+	/**
+	 * @param presencePenalty the presencePenalty to set
+	 */
+	public void setPresencePenalty(Float presencePenalty) {
+		this.presencePenalty = presencePenalty;
+	}
+
+	/**
+	 * @return the frequencyPenalty
+	 */
+	public Float getFrequencyPenalty() {
+		return frequencyPenalty;
+	}
+
+	/**
+	 * @param frequencyPenalty the frequencyPenalty to set
+	 */
+	public void setFrequencyPenalty(Float frequencyPenalty) {
+		this.frequencyPenalty = frequencyPenalty;
+	}
+
+	/**
+	 * @return the responseLogprobs
+	 */
+	public Boolean getResponseLogprobs() {
+		return responseLogprobs;
+	}
+
+	/**
+	 * @param responseLogprobs the responseLogprobs to set
+	 */
+	public void setResponseLogprobs(Boolean responseLogprobs) {
+		this.responseLogprobs = responseLogprobs;
+	}
+
+	/**
+	 * @return the logprobs
+	 */
+	public Integer getLogprobs() {
+		return logprobs;
+	}
+
+	/**
+	 * @param logprobs the logprobs to set
+	 */
+	public void setLogprobs(Integer logprobs) {
+		this.logprobs = logprobs;
+	}
+
+	/**
+	 * @return the enableEnhancedCivicAnswers
+	 */
+	public Boolean getEnableEnhancedCivicAnswers() {
+		return enableEnhancedCivicAnswers;
+	}
+
+	/**
+	 * @param enableEnhancedCivicAnswers the enableEnhancedCivicAnswers to set
+	 */
+	public void setEnableEnhancedCivicAnswers(Boolean enableEnhancedCivicAnswers) {
+		this.enableEnhancedCivicAnswers = enableEnhancedCivicAnswers;
 	}
 }
