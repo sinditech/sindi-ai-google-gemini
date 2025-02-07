@@ -12,9 +12,6 @@ import jakarta.json.bind.annotation.JsonbProperty;
 public class EmbedContentRequest {
 	
 	@JsonbProperty
-	private String model;
-
-	@JsonbProperty
 	private Content content;
 	
 	@JsonbProperty
@@ -25,20 +22,6 @@ public class EmbedContentRequest {
 	
 	@JsonbProperty
 	private Integer outputDimensionality;
-
-	/**
-	 * @return the model
-	 */
-	public String getModel() {
-		return model;
-	}
-
-	/**
-	 * @param model the model to set
-	 */
-	public void setModel(String model) {
-		this.model = model;
-	}
 
 	/**
 	 * @return the content

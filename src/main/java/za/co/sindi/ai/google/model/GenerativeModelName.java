@@ -8,6 +8,8 @@ package za.co.sindi.ai.google.model;
  * @since 09 February 2024
  */
 public enum GenerativeModelName {
+	GEMINI_2_0_FLASH_001("gemini-2.0-flash-001"),
+	GEMINI_2_0_FLASH_LITE_PREVIEW_02_05("gemini-2.0-flash-lite-preview-02-05"),
 	@Deprecated
 	GEMINI_PRO("gemini-pro"),
 	@Deprecated
@@ -15,9 +17,12 @@ public enum GenerativeModelName {
 	GEMINI_1_5_PRO("gemini-1.5-pro"),
 	GEMINI_1_5_PRO_LATEST("gemini-1.5-pro-latest"),
 	GEMINI_1_5_FLASH("gemini-1.5-flash"),
+	GEMINI_1_5_FLASH_001("gemini-1.5-flash-001"),
+	GEMINI_1_5_FLASH_002("gemini-1.5-flash-002"),
 	GEMINI_1_5_FLASH_LATEST("gemini-1.5-flash-latest"),
 	GEMINI_1_5_FLASH_8B("gemini-1.5-flash-8b"),
 	GEMINI_1_5_FLASH_8B_LATEST("gemini-1.5-flash-8b-latest"),
+	GEMINI_1_5_FLASH_8B_001("gemini-1.5-flash-8b-001"),
 	@Deprecated
 	GEMINI_1_0_PRO("gemini-1.0-pro"),
 	@Deprecated
@@ -52,6 +57,6 @@ public enum GenerativeModelName {
 	}
 	
 	public static GenerativeModelName getLatest() {
-		return GEMINI_1_5_PRO_LATEST;
+		return GEMINI_2_0_FLASH_001;
 	}
 }
