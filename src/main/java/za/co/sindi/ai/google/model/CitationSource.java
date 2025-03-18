@@ -22,15 +22,9 @@ public class CitationSource implements Serializable {
 	@JsonbProperty
 	private String uri;
 	
-//	@JsonbProperty
-//	private String title;
-	
 	@JsonbProperty
 	private String license;
 	
-//	@JsonbProperty
-//	private Date publicationDate;
-
 	/**
 	 * @return the startIndex
 	 */
@@ -73,20 +67,6 @@ public class CitationSource implements Serializable {
 		this.uri = uri;
 	}
 
-//	/**
-//	 * @return the title
-//	 */
-//	public String getTitle() {
-//		return title;
-//	}
-//
-//	/**
-//	 * @param title the title to set
-//	 */
-//	public void setTitle(String title) {
-//		this.title = title;
-//	}
-
 	/**
 	 * @return the license
 	 */
@@ -100,18 +80,4 @@ public class CitationSource implements Serializable {
 	public void setLicense(String license) {
 		this.license = license;
 	}
-
-//	/**
-//	 * @return the publicationDate
-//	 */
-//	public Date getPublicationDate() {
-//		return publicationDate;
-//	}
-//
-//	/**
-//	 * @param publicationDate the publicationDate to set
-//	 */
-//	public void setPublicationDate(Date publicationDate) {
-//		this.publicationDate = publicationDate;
-//	}
 }

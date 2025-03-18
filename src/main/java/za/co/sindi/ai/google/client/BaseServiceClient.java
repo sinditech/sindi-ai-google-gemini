@@ -27,6 +27,7 @@ import za.co.sindi.commons.net.http.WithErrorBodyHandler;
 import za.co.sindi.commons.net.sse.Event;
 import za.co.sindi.commons.net.sse.MessageEvent;
 import za.co.sindi.commons.util.Either;
+import za.co.sindi.commons.utils.Strings;
 
 /**
  * @author Buhake Sindi
@@ -80,6 +81,12 @@ public abstract class BaseServiceClient implements ServiceClient {
 						  .POST(bodyPublisher);
 	}
 	
+	protected HttpRequest.Builder createHttpPATCHRequestBuilder(final URI uri, final BodyPublisher bodyPublisher) {
+		return HttpRequest.newBuilder(uri)
+						  .header("Content-Type", "application/json")
+						  .method("PATCH", bodyPublisher);
+	}
+	
 	protected <R> HttpResponse<Either<R, String>> send(final HttpRequest.Builder httpRequestBuilder, final BodyHandler<R> bodyHandler) throws IOException, InterruptedException {
 		HttpRequest httpRequest = httpRequestBuilder.build();
 		HttpClient httpClient = createHttpClient();
@@ -100,6 +107,16 @@ public abstract class BaseServiceClient implements ServiceClient {
 		}
 		
 		return either.getLeft();
+	}
+	
+	protected void createQueryParameterString(final StringBuilder sb, final String paramKey, final Object paramValue) {
+		if (paramValue != null) {
+			if (!sb.isEmpty()) {
+				sb.append("&");
+			}
+			
+			sb.append(paramKey).append("=").append(String.valueOf(paramValue));
+		}
 	}
 
 //	protected <R> Stream<R> handleStream(final Stream<String> lines, Class<R> entityClassType) {

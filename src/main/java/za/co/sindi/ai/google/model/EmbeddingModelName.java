@@ -8,6 +8,7 @@ package za.co.sindi.ai.google.model;
  * @since 09 February 2024
  */
 public enum EmbeddingModelName {
+	GEMINI_EMBEDDING_EXP_03_07("gemini-embedding-exp-03-07"),
 	EMBEDDING_001("embedding-001"),
 	;
 	private final String name;

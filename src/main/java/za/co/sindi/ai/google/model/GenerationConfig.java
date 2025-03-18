@@ -23,6 +23,9 @@ public class GenerationConfig implements Serializable {
 	private Schema responseSchema;
 	
 	@JsonbProperty
+	private Modality[] responseModalities;
+	
+	@JsonbProperty
 	private Float temperature;
 	
 	@JsonbProperty
@@ -38,6 +41,9 @@ public class GenerationConfig implements Serializable {
 	private Integer maxOutputTokens;
 	
 	@JsonbProperty
+	private Integer seed;
+	
+	@JsonbProperty
 	private Float presencePenalty;
 	
 	@JsonbProperty
@@ -51,6 +57,12 @@ public class GenerationConfig implements Serializable {
 	
 	@JsonbProperty
 	private Boolean enableEnhancedCivicAnswers;
+	
+	@JsonbProperty
+	private SpeechConfig speechConfig;
+	
+	@JsonbProperty
+	private MediaResolution mediaResolution;
 
 	/**
 	 * @return the stopSequences
@@ -92,6 +104,20 @@ public class GenerationConfig implements Serializable {
 	 */
 	public void setResponseSchema(Schema responseSchema) {
 		this.responseSchema = responseSchema;
+	}
+
+	/**
+	 * @return the responseModalities
+	 */
+	public Modality[] getResponseModalities() {
+		return responseModalities;
+	}
+
+	/**
+	 * @param responseModalities the responseModalities to set
+	 */
+	public void setResponseModalities(Modality[] responseModalities) {
+		this.responseModalities = responseModalities;
 	}
 
 	/**
@@ -165,6 +191,20 @@ public class GenerationConfig implements Serializable {
 	}
 
 	/**
+	 * @return the seed
+	 */
+	public Integer getSeed() {
+		return seed;
+	}
+
+	/**
+	 * @param seed the seed to set
+	 */
+	public void setSeed(Integer seed) {
+		this.seed = seed;
+	}
+
+	/**
 	 * @return the presencePenalty
 	 */
 	public Float getPresencePenalty() {
@@ -232,5 +272,33 @@ public class GenerationConfig implements Serializable {
 	 */
 	public void setEnableEnhancedCivicAnswers(Boolean enableEnhancedCivicAnswers) {
 		this.enableEnhancedCivicAnswers = enableEnhancedCivicAnswers;
+	}
+
+	/**
+	 * @return the speechConfig
+	 */
+	public SpeechConfig getSpeechConfig() {
+		return speechConfig;
+	}
+
+	/**
+	 * @param speechConfig the speechConfig to set
+	 */
+	public void setSpeechConfig(SpeechConfig speechConfig) {
+		this.speechConfig = speechConfig;
+	}
+
+	/**
+	 * @return the mediaResolution
+	 */
+	public MediaResolution getMediaResolution() {
+		return mediaResolution;
+	}
+
+	/**
+	 * @param mediaResolution the mediaResolution to set
+	 */
+	public void setMediaResolution(MediaResolution mediaResolution) {
+		this.mediaResolution = mediaResolution;
 	}
 }

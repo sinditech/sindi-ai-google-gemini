@@ -18,9 +18,6 @@ public class PromptFeedback implements Serializable {
 
 	@JsonbProperty
 	private SafetyRating[] safetyRatings;
-	
-//	@JsonbProperty
-//	private String blockReasonMessage;
 
 	/**
 	 * @return the blockReason
@@ -49,18 +46,4 @@ public class PromptFeedback implements Serializable {
 	public void setSafetyRatings(SafetyRating[] safetyRatings) {
 		this.safetyRatings = safetyRatings;
 	}
-
-//	/**
-//	 * @return the blockReasonMessage
-//	 */
-//	public String getBlockReasonMessage() {
-//		return blockReasonMessage;
-//	}
-//
-//	/**
-//	 * @param blockReasonMessage the blockReasonMessage to set
-//	 */
-//	public void setBlockReasonMessage(String blockReasonMessage) {
-//		this.blockReasonMessage = blockReasonMessage;
-//	}
 }

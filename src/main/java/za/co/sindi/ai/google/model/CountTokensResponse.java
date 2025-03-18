@@ -18,6 +18,9 @@ public class CountTokensResponse implements Serializable {
 	
 	@JsonbProperty
 	private Integer cachedContentTokenCount;
+	
+	@JsonbProperty
+	private ModalityTokenCount[] promptTokensDetails;
 
 	/**
 	 * @return the totalTokens
@@ -45,5 +48,19 @@ public class CountTokensResponse implements Serializable {
 	 */
 	public void setCachedContentTokenCount(Integer cachedContentTokenCount) {
 		this.cachedContentTokenCount = cachedContentTokenCount;
+	}
+
+	/**
+	 * @return the promptTokensDetails
+	 */
+	public ModalityTokenCount[] getPromptTokensDetails() {
+		return promptTokensDetails;
+	}
+
+	/**
+	 * @param promptTokensDetails the promptTokensDetails to set
+	 */
+	public void setPromptTokensDetails(ModalityTokenCount[] promptTokensDetails) {
+		this.promptTokensDetails = promptTokensDetails;
 	}
 }

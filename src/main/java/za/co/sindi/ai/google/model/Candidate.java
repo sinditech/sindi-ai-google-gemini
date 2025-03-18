@@ -44,9 +44,6 @@ public class Candidate implements Serializable {
 	@JsonbProperty
 	private LogprobsResult logprobsResult;
 	
-//	@JsonbProperty
-//	private String finishMessage;
-
 	/**
 	 * @return the index
 	 */
@@ -116,20 +113,6 @@ public class Candidate implements Serializable {
 	public void setCitationMetadata(CitationMetadata citationMetadata) {
 		this.citationMetadata = citationMetadata;
 	}
-
-//	/**
-//	 * @return the finishMessage
-//	 */
-//	public String getFinishMessage() {
-//		return finishMessage;
-//	}
-//
-//	/**
-//	 * @param finishMessage the finishMessage to set
-//	 */
-//	public void setFinishMessage(String finishMessage) {
-//		this.finishMessage = finishMessage;
-//	}
 
 	/**
 	 * @return the tokenCount

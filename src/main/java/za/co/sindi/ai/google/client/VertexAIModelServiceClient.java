@@ -23,8 +23,10 @@ import za.co.sindi.ai.google.model.GenerateContentRequest;
 import za.co.sindi.ai.google.model.GenerateContentResponse;
 import za.co.sindi.ai.google.model.GenerativeModelName;
 import za.co.sindi.ai.google.model.ListModel;
+import za.co.sindi.ai.google.model.ListTunedModel;
 import za.co.sindi.ai.google.model.Model;
 import za.co.sindi.ai.google.model.Region;
+import za.co.sindi.ai.google.model.TunedModel;
 import za.co.sindi.commons.io.UncheckedException;
 import za.co.sindi.commons.net.sse.AllEventsEventHandler;
 import za.co.sindi.commons.net.sse.SSEEventSubscriber;
@@ -124,14 +126,6 @@ public class VertexAIModelServiceClient extends VertexAIServiceClient implements
 	}
 
 	@Override
-	public CompletableFuture<ListModel> listModelsAsync() {
-		// TODO Auto-generated method stub
-		HttpRequest.Builder httpRequestBuilder = createHttpGETRequestBuilder(URI.create(listModelsUriPath));
-		CompletableFuture<HttpResponse<Either<String, String>>> httpResponseFuture = sendAsync(httpRequestBuilder, BodyHandlers.ofString());
-		return httpResponseFuture.thenApplyAsync(httpResponse -> objectTransformer.transform(validateAndHandleHttpResponse(httpResponse), ListModel.class)).toCompletableFuture();
-	}
-
-	@Override
 	public CompletableFuture<Stream<GenerateContentResponse>> generateContentStreamAsync(GenerateContentRequest request) {
 		// TODO Auto-generated method stub
 		HttpRequest.Builder httpRequestBuilder = createHttpPOSTRequestBuilder(URI.create(streamGenerateContentUriPath) ,BodyPublishers.ofString(objectTransformer.transform(request)));
@@ -193,22 +187,6 @@ public class VertexAIModelServiceClient extends VertexAIServiceClient implements
 	}
 
 	@Override
-	public ListModel listModels() {
-		// TODO Auto-generated method stub
-		try {
-			HttpRequest.Builder httpRequestBuilder = createHttpGETRequestBuilder(URI.create(listModelsUriPath));
-			HttpResponse<Either<String, String>> httpResponse = send(httpRequestBuilder, BodyHandlers.ofString());
-			return objectTransformer.transform(validateAndHandleHttpResponse(httpResponse), ListModel.class);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			throw new UncheckedIOException(e);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			throw new UncheckedException(e);
-		}
-	}
-
-	@Override
 	public Stream<GenerateContentResponse> generateContentStream(GenerateContentRequest request) {
 		// TODO Auto-generated method stub
 		try {
@@ -225,5 +203,113 @@ public class VertexAIModelServiceClient extends VertexAIServiceClient implements
 			// TODO Auto-generated catch block
 			throw new UncheckedException(e);
 		}
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.AsyncModelServiceClient#listModelsAsync(java.lang.Integer, java.lang.String)
+	 */
+	@Override
+	public CompletableFuture<ListModel> listModelsAsync(Integer pageSize, String pageToken) {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		createQueryParameterString(sb, "pageSize", pageSize);
+		createQueryParameterString(sb, "pageToken", pageToken);
+		HttpRequest.Builder httpRequestBuilder = createHttpGETRequestBuilder(URI.create(listModelsUriPath + (sb.isEmpty() ? "" : "&" + sb.toString())));
+		CompletableFuture<HttpResponse<Either<String, String>>> httpResponseFuture = sendAsync(httpRequestBuilder, BodyHandlers.ofString());
+		return httpResponseFuture.thenApplyAsync(httpResponse -> objectTransformer.transform(validateAndHandleHttpResponse(httpResponse), ListModel.class)).toCompletableFuture();
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.AsyncModelServiceClient#createTunedModelAsync(java.lang.String, za.co.sindi.ai.google.model.TunedModel)
+	 */
+	@Override
+	public CompletableFuture<Object> createTunedModelAsync(String tunedModelId, TunedModel tunedModel) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.AsyncModelServiceClient#getTunedModelAsync(java.lang.String)
+	 */
+	@Override
+	public CompletableFuture<TunedModel> getTunedModelAsync(String tunedModelId) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.AsyncModelServiceClient#listTunedModelAsync(java.lang.Integer, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public CompletableFuture<ListTunedModel> listTunedModelAsync(Integer pageSize, String pageToken, String filter) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.AsyncModelServiceClient#updateTunedModelAsync(java.lang.String, za.co.sindi.ai.google.model.TunedModel)
+	 */
+	@Override
+	public CompletableFuture<TunedModel> updateTunedModelAsync(String tunedModelId, TunedModel tunedModel) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.ModelServiceClient#listModels(java.lang.Integer, java.lang.String)
+	 */
+	@Override
+	public ListModel listModels(Integer pageSize, String pageToken) {
+		// TODO Auto-generated method stub
+		StringBuilder sb = new StringBuilder();
+		createQueryParameterString(sb, "pageSize", pageSize);
+		createQueryParameterString(sb, "pageToken", pageToken);
+		try {
+			HttpRequest.Builder httpRequestBuilder = createHttpGETRequestBuilder(URI.create(listModelsUriPath + (sb.isEmpty() ? "" : "&" + sb.toString())));
+			HttpResponse<Either<String, String>> httpResponse = send(httpRequestBuilder, BodyHandlers.ofString());
+			return objectTransformer.transform(validateAndHandleHttpResponse(httpResponse), ListModel.class);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			throw new UncheckedIOException(e);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			throw new UncheckedException(e);
+		}
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.ModelServiceClient#createTunedModel(java.lang.String, za.co.sindi.ai.google.model.TunedModel)
+	 */
+	@Override
+	public Object createTunedModel(String tunedModelId, TunedModel tunedModel) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.ModelServiceClient#getTunedModel(java.lang.String)
+	 */
+	@Override
+	public TunedModel getTunedModel(String tunedModelId) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.ModelServiceClient#listTunedModel(java.lang.Integer, java.lang.String, java.lang.String)
+	 */
+	@Override
+	public ListTunedModel listTunedModel(Integer pageSize, String pageToken, String filter) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
+	}
+
+	/* (non-Javadoc)
+	 * @see za.co.sindi.ai.google.client.ModelServiceClient#updateTunedModel(java.lang.String, za.co.sindi.ai.google.model.TunedModel)
+	 */
+	@Override
+	public TunedModel updateTunedModel(String tunedModelId, TunedModel tunedModel) {
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Method not supported.");
 	}
 }
